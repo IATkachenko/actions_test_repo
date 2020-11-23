@@ -10,6 +10,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      skipped: ${{ steps.changelog.outputs.skipped }}
+      clean_changelog: ${{ steps.changelog.outputs.clean_changelog }}
+      tag: ${{ steps.changelog.outputs.tag }}
     steps:
       - uses: actions/checkout@v2        
         id: checkout
@@ -28,10 +32,10 @@ jobs:
       - name: Create Release
         id: publish
         uses: actions/create-release@v1
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        if: ${{ needs.build.outputs.skipped == 'false' }}
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
         with:
-          tag_name: ${{ steps.changelog.outputs.tag }}
-          release_name: ${{ steps.changelog.outputs.tag }}
-          body: ${{ steps.changelog.outputs.clean_changelog }} 
+          tag_name: ${{ needs.build.outputs..tag }}
+          release_name: ${{ needs.build.outputs..tag }}
+          body: ${{ needs.build.outputs..clean_changelog }} 
