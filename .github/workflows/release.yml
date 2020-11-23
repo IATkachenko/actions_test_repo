@@ -18,4 +18,6 @@ jobs:
         uses: TriPSs/conventional-changelog-action@v3
         with:
           github-token: ${{ secrets.RELEASE_TOKEN }}
+          git-user-name: Relese bot
+          git-user-email: Conventional.changelog.action@github.com
           skip-on-empty: False
