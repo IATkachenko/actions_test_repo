@@ -1,3 +1,12 @@
+## [0.1.4](https://github.com/IATkachenko/actions_test_repo/compare/v0.1.3...v0.1.4) (2020-11-23)
+
+
+### Bug Fixes
+
+* use release token  ([936df64](https://github.com/IATkachenko/actions_test_repo/commit/936df64e7babb5944ee5b25b8e62cd8a0b521f71))
+
+
+
 ## [0.1.3](https://github.com/IATkachenko/actions_test_repo/compare/v0.1.2...v0.1.3) (2020-11-23)
 
 
