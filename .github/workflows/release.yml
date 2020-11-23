@@ -7,21 +7,17 @@ on:
       - main
   workflow_dispatch:
 
-jobs:
-  checkout:    
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2        
-        id: checkout
-         
+jobs:        
   build:
-    needs: checkout
     runs-on: ubuntu-latest
     outputs:
       skipped: ${{ steps.changelog.outputs.skipped }}
       clean_changelog: ${{ steps.changelog.outputs.clean_changelog }}
       tag: ${{ steps.changelog.outputs.tag }}
-    steps:      
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2        
+        id: checkout   
       - name: Conventional Changelog Action
         id: changelog
         uses: TriPSs/conventional-changelog-action@v3
