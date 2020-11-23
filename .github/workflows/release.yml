@@ -21,6 +21,10 @@ jobs:
           output-file: "false"
           skip-version-file:   "true"
           skip-commit: "true"
+  release: 
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Create Release
         id: publish
         uses: actions/create-release@v1
